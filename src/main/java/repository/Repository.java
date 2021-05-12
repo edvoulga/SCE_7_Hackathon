@@ -19,9 +19,11 @@ public abstract class Repository<T, K> {
             entityManager.persist(t);
             entityManager.getTransaction().commit();
         } catch (ConstraintViolationException e) {
-            System.out.println("Already registered!");
+            // return null in case of exception
+            return null;
         } catch (Exception e) {
-            e.printStackTrace();
+            // return null in case of exception
+            return null;
         }
         return null;
     }
@@ -50,6 +52,7 @@ public abstract class Repository<T, K> {
 
 
     // Update
+    // Returns null only in exception
     public T update(T t) {
         try {
             entityManager.getTransaction().begin();
@@ -57,9 +60,8 @@ public abstract class Repository<T, K> {
             entityManager.getTransaction().commit();
             return t;
         } catch (Exception e) {
-            e.printStackTrace();
+            return null;
         }
-        return null;
     }
     //Verify
 
