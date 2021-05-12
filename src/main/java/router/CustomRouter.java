@@ -16,15 +16,10 @@ public class CustomRouter {
         this.application = application;
     }
 
-
     public Router publicResources() {
         Router router = new Router();
         router.attach("/ping", PingServerResource.class);
-        router.attach("/login", LogInResource.class);
-
         router.attach("/register", registerResource.class);
-        router.attach("/chiefDoctor", ChiefDoctorListResource.class);
-        router.attach("/chiefDoctor/{id}", ChiefDoctorResource.class);
 
 
         return router;
@@ -33,6 +28,11 @@ public class CustomRouter {
 
     public Router protectedResources() {
         Router router = new Router();
+// make fields private
+        router.attach("/login", LogInResource.class);
+
+        router.attach("/chiefDoctor", ChiefDoctorListResource.class);
+        router.attach("/chiefDoctor/{id}", ChiefDoctorResource.class);
 
         //Patient
         router.attach("/patientSettings/{id}", PatientSettingsResource.class);
@@ -64,10 +64,17 @@ public class CustomRouter {
 
 
         //ChiefDoctor
+        // auto einai ligo paraplanitiko...
         router.attach("/patient", PatientListResource.class);
+        // edw kanoume expose to id enw to pername idi san pliroforia kai genika opou uparxei parent id
+        // kai episis o asthenis no1 mporei na dwsei plirofiria gia astheni no2
         router.attach("/patient/{id}", PatientResource.class);
         router.attach("/doctor", DoctorListResource.class);
         router.attach("/doctor/{id}", DoctorResource.class);
+
+        // delete users
+
+        router.attach("/carb", CarbListResource.class);
 
         router.attach("/carb", CarbListResource.class);
         router.attach("/carb/{id}", CarbResource.class);
