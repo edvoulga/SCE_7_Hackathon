@@ -5,9 +5,9 @@
         <!-- Entity classes -->
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-            <property name="javax.persistence.jdbc.url"    value="jdbc:sqlserver://localhost;databaseName=pfizerSacchon" />
-            <property name="javax.persistence.jdbc.user" value="sa" />
-            <property name="javax.persistence.jdbc.password" value="passw0rd" />
+            <property name="javax.persistence.jdbc.url"    value="jdbc:sqlserver://database-1.cctsdvzct8ek.eu-west-1.rds.amazonaws.com:1433;databaseName=sacchon" />
+            <property name="javax.persistence.jdbc.user" value="admin" />
+            <property name="javax.persistence.jdbc.password" value="adminpassw0rd" />
             <property name="hibernate.dialect" value="org.hibernate.dialect.SQLServer2012Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="create" />
             <property name="hibernate.show_sql" value="true"/>
