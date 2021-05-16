@@ -2,6 +2,7 @@ package router;
 
 import org.restlet.Application;
 import org.restlet.routing.Router;
+import org.restlet.routing.TemplateRoute;
 import resource.*;
 import resource.chiefDoctor.*;
 import resource.doctor.*;
@@ -37,7 +38,7 @@ public class CustomRouter {
         //Patient
         router.attach("/patientSettings/{id}", PatientSettingsResource.class);
         router.attach("/patient/{patientId}/carb/{carbId}", PatientCarbResource.class);
-        router.attach("/patient/{patientId}/carb/", PatientCarbListResource.class);
+        router.attach("/patient/carb/", PatientCarbListResource.class);
         router.attach("/patient/{patientId}/glucose/{glucoseId}", PatientGlucoseResource.class);
         router.attach("/patient/{patientId}/glucose/", PatientGlucoseListResource.class);
         router.attach("/patient/{patientId}/consultation/{consultationId}", PatientConsultationResource.class);
@@ -64,10 +65,7 @@ public class CustomRouter {
 
 
         //ChiefDoctor
-        // auto einai ligo paraplanitiko...
         router.attach("/patient", PatientListResource.class);
-        // edw kanoume expose to id enw to pername idi san pliroforia kai genika opou uparxei parent id
-        // kai episis o asthenis no1 mporei na dwsei plirofiria gia astheni no2
         router.attach("/patient/{id}", PatientResource.class);
         router.attach("/doctor", DoctorListResource.class);
         router.attach("/doctor/{id}", DoctorResource.class);
