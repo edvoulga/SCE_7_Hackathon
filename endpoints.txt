@@ -1,0 +1,4 @@
+Public endpoints: 
+
+EC2 instance: http://ec2-46-51-132-119.eu-west-1.compute.amazonaws.com/
+RDS instance: database-1.cctsdvzct8ek.eu-west-1.rds.amazonaws.com
